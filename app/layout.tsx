@@ -22,6 +22,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  console.log('Dataset:', process.env.NEXT_PUBLIC_SANITY_DATASET);
+  console.log('Project ID:', process.env.NEXT_PUBLIC_SANITY_PROJECT_ID);
   return (
     <html lang="en">
       <body
