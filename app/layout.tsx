@@ -3,6 +3,7 @@ import { Geist } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
 import { Header } from "./components/Layout/Header/Header";
+import { Footer } from "./components/Layout/Footer/Footer";
 
 
 const oswald = Geist({
@@ -33,6 +34,7 @@ export default function RootLayout({
         <Providers>
           <Header />
           {children}
+          <Footer />
         </Providers>
       </body>
     </html>
