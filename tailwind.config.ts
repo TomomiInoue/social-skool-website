@@ -16,7 +16,7 @@ export default {
         darkBrown: "#4E2A1E",
         burgundy: "#962D1F",
         babyPink: "#FFDEEA",
-        borderGrey: "#979797",
+        borderGrey: "#97979",
       },
     },
     container: {

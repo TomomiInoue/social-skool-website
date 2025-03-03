@@ -34,7 +34,7 @@ const socials = [
 export const Footer = () => {
     return (
         <footer className="bg-burgundy text-white py-10">
-            <div className="container flex flex-col md:flex-row justify-between items-center gap-[150px] border-t-1 border-b-1 border-white border-opacity-50">
+            <div className="container flex flex-col md:flex-row justify-between items-start md:items-center lg:gap-[150px] border-t-1 border-b-1 border-white border-opacity-50">
                 <NextImage src="/logo/logo-white.png" alt="Social Sckool white logo" width={400} height={150} />
                 <div className='flex flex-col gap-4'>
                     {footerItems.map((item, index) => (
@@ -45,7 +45,7 @@ export const Footer = () => {
                             </Link>
                         </div>
                     ))}
-                    <div className='flex flex-row gap-4 mt-6'>
+                    <div className='flex flex-row gap-4 mt-6 mb-6 md:mb-0'>
                         {socials.map((social, index) => (
                             <Link key={index} href={social.link}
                                 className="text-white"
@@ -56,7 +56,7 @@ export const Footer = () => {
                     </div>
                 </div>
             </div>
-            <div className='container flex justify-between'>
+            <div className='container flex flex-col md:flex-row justify-between pt-6 lg:pt-0'>
                 <div className='flex items-start gap-5'>
                     {menuItems.map((item) => (
                         <Link href={item.href} key={item.label} className="text-white">
