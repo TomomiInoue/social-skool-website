@@ -26,8 +26,8 @@ export default {
         sm: "640px",
         md: "768px",
         lg: "1024px",
-        xl: "1152px",
-        "2xl": "1152px",
+        xl: "1307px",
+        "2xl": "1307px",
       },
       padding: {
         DEFAULT: "1rem",

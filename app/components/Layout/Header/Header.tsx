@@ -8,6 +8,7 @@ import { MobileNav } from "./MobileNav";
 
 export const Header = () => {
     const pathname = usePathname()
+
     return (
         <>
             <Navbar isBordered classNames={{
@@ -25,9 +26,10 @@ export const Header = () => {
                                 href={item.href} key={item.label}
                             >
                                 <NavbarItem key={item.label}
-                                    className={cn("text-darkBrown hover:text-burgundy", pathname === item.href ? "text-burgundy font-bold underline underline-offset-4" : "")}
+                                    className={cn("text-darkBrown hover:text-burgundy", pathname === item.href ||
+                                        (pathname.includes(item.href) && item.href !== "/")
+                                        ? "text-burgundy font-bold underline underline-offset-4" : "")}
                                 >
-
                                     {item.label}
                                 </NavbarItem>
                             </Link>
