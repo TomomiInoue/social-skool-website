@@ -1,15 +1,19 @@
+import { cn } from '@heroui/react';
 import NextImage from 'next/image';
+
+const LandingHeaderGapStyle = "gap-8 lg:gap-10 xl:gap-[80px] 2xl:gap-[120px"
+const HeadingStyle = "text-[56px] lg:text-[68px] xl:text-[82px] "
+const SubHeadingStyle = "text-[24px] lg:text-[40px]"
 
 export const Landing = () => {
     return (
-        <div className="flex flex-col md:flex-row justify-center items-center pt-4 pb-8 px-10 gap-[120px]">
-            <div className="flex flex-col justify-center items-center">
-                <h1 className="text-darkBrown text-[82px] font-bold text-nowrap">SOCIAL SCKOOL</h1>
-                <h5 className="text-darkBrown text-[40px] font-normal">BY KEELEY IVERSON</h5>
+        <div className={cn("flex flex-col md:flex-row justify-center items-center pt-4 pb-8 px-10", LandingHeaderGapStyle)}>
+            <div className="flex flex-col order-2 md:order-1 justify-center items-center">
+                <h1 className={cn("text-darkBrown font-bold text-nowrap ", HeadingStyle)}>SOCIAL SCKOOL</h1>
+                <h5 className={cn("text-darkBrown  font-normal", SubHeadingStyle)}>BY KEELEY IVERSON</h5>
             </div>
-
-            <div className="">
-                <NextImage src="/images/home.png" alt="Social Sckool" width={620} height={855} priority className='rounded-md' />
+            <div className="w-screen md:w-full">
+                <NextImage src="/images/home.png" alt="Social Sckool" width={620} height={855} priority className='md:rounded-md' />
             </div>
         </div>
     );

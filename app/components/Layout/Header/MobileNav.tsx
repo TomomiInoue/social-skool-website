@@ -9,7 +9,7 @@ export const MobileNav = () => {
     return (
         <Navbar onMenuOpenChange={setIsMenuOpen} isMenuOpen={isMenuOpen}
             classNames={{
-                base: "sm:hidden",
+                base: "md:hidden",
             }}
         >
             <NavbarContent>
