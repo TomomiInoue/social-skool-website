@@ -1,4 +1,8 @@
-import { Service, SocialMediaManageTypes } from "../types/types";
+import {
+  IndividualOffersTypes,
+  Service,
+  SocialMediaManageTypes,
+} from "../types/types";
 
 export const servicesDiscription: Service[] = [
   {
@@ -61,6 +65,44 @@ export const socialMediaManagementItems: SocialMediaManageTypes[] = [
       "Daily Strategic Community Engagement",
       "Monthly Analytics & Review Report",
       "Constant Support via Messenger (24hr window replies)",
+    ],
+  },
+];
+
+export const individualOffersItems: IndividualOffersTypes[] = [
+  {
+    header: "1:1 Strategy Call",
+    price: "$103.3",
+    services: [
+      "Deep dive into your social media channels",
+      "Understands your brand and identifies strengths x     and weaknesses",
+      "Tailored, actionable one-month strategy to boost your social media",
+    ],
+  },
+  {
+    header: "Bio Highlights & Refresh",
+    price: "$103.3",
+    services: [
+      "Updated bio for SEO optimisation",
+      "Refresh your highlights to showcase who you are as a brand",
+      "Updated highlights will include customer reviews, products or services and other relative content that best reflects your brand",
+    ],
+  },
+  {
+    header: "On-site Content Shoot",
+    price: "$103.3",
+    services: [
+      "High-quality, brand-focused, ready to post content",
+      "4 reels & 10 images",
+    ],
+  },
+  {
+    header: "UGC Creation",
+    price: "309.28 / $721.28",
+    services: [
+      "High quality, authentic, peer-driven content to engage your audience, build trust, and enhance brand visibility.",
+      "‘UGC Starter’ = 2x Reels",
+      "‘UGC Pack’ = 5x Reels",
     ],
   },
 ];

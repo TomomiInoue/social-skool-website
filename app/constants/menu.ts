@@ -6,6 +6,16 @@ export const menuItems = [
   {
     label: "Services",
     href: "/services",
+    subMenu: [
+      {
+        label: "Social Media Management",
+        href: "/services/social-media-management",
+      },
+      {
+        label: "Individual Offers",
+        href: "/services/individual-offers",
+      },
+    ],
   },
   {
     label: "Contact",

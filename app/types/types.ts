@@ -10,3 +10,9 @@ export interface SocialMediaManageTypes {
   price: number;
   services: string[];
 }
+
+export interface IndividualOffersTypes {
+  header: string;
+  price: string;
+  services: string[];
+}
