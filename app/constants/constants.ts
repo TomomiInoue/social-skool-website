@@ -2,7 +2,7 @@ import {
   IndividualOffersTypes,
   Service,
   SocialMediaManageTypes,
-} from "../types/types";
+} from "../types";
 
 export const servicesDiscription: Service[] = [
   {

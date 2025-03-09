@@ -1,4 +1,4 @@
-import { IndividualOffersTypes, SocialMediaManageTypes } from "@/app/types/types";
+import { IndividualOffersTypes, SocialMediaManageTypes } from "@/app/types";
 
 interface ServiceDetailsCardProps {
     item: SocialMediaManageTypes | IndividualOffersTypes;
