@@ -9,11 +9,11 @@ export const menuItems = [
     subMenu: [
       {
         label: "Social Media Management",
-        href: "/services/social-media-management",
+        href: "/services-page/social-media-management",
       },
       {
         label: "Individual Offers",
-        href: "/services/individual-offers",
+        href: "/services-page/individual-offers",
       },
     ],
   },

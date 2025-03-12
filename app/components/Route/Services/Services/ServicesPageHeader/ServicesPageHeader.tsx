@@ -16,7 +16,7 @@ export const ServicesPageHeader = ({ title, description }: ServicesPageHeaderPro
                 <p className="text-base pb-5">
                     {description}
                 </p>
-                <Link href="/services" className="text-burgundy flex gap-2 text-sm">
+                <Link href="/services-page" className="text-burgundy flex gap-2 text-sm">
                     <Icon icon="iconoir:arrow-left" width="16" height="16" className="text-burgundy" />
                     All services
                 </Link>
