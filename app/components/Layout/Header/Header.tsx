@@ -5,6 +5,7 @@ import { Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Button, cn } from
 import NextImage from "next/image";
 import { usePathname } from 'next/navigation'
 import { MobileNav } from "./MobileNav";
+import { Links } from "@/app/constants/links";
 
 export const Header = () => {
     const pathname = usePathname()
@@ -35,9 +36,9 @@ export const Header = () => {
                             </Link>
                         ))}
                     </div>
-                    <Link href="https://share.newie.app/providers/le7P7mTPjvOFiBsAUjIttOdWUvt2" target="_blank" >
-                        <Button variant="solid" radius="md" className="bg-burgundy py-4 px-6 h-14 text-white font-bold text-[20px] oswald">BOOK NOW</Button>
-                    </Link>
+                    <Button variant="solid" radius="md" className="bg-burgundy py-4 px-6 h-14 text-white font-bold text-[20px] oswald"
+                        onPress={() => window.open(Links.booking, "_blank")}
+                    >BOOK NOW</Button>
                 </NavbarContent>
             </Navbar >
             <MobileNav />

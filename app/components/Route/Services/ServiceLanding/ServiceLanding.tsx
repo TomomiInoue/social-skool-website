@@ -6,8 +6,6 @@ import { motion } from "framer-motion";
 import { servicesDiscription } from '@/app/constants/constants';
 
 
-
-
 export const ServiceLanding = () => {
     return (
         <>
@@ -20,7 +18,7 @@ export const ServiceLanding = () => {
                     priority
                 />
             </div>
-            <div className='container grid grid-cols-1 md:gap-[160px] md:grid-cols-2 items-start justify-between pt-10 pb-[120px]'>
+            <div className='container grid grid-cols-1 md:gap-[160px] md:grid-cols-2 items-start justify-between pt-10 pb-[120px] gap-[60px]'>
                 {servicesDiscription.map((service, index) => (
                     <div key={index} className='flex flex-col gap-4'>
                         <h4 className='oswald text-3xl font-bold'>{service.header}</h4>
@@ -30,7 +28,7 @@ export const ServiceLanding = () => {
 
                         <Link href={service.link} className='flex-end'>
                             <motion.div
-                                className={`flex items-center gap-2 text-lg font-medium text-blue-600 hover:text-blue-800 transition-colors cursor-pointer $`}
+                                className={`flex items-center gap-2 text-lg font-medium transition-colors cursor-pointer $`}
                                 whileHover={{ x: 5 }} // Moves the arrow slightly on hover
                                 transition={{ type: "spring", stiffness: 300 }}
                             >

@@ -3,6 +3,7 @@ import { Navbar, NavbarContent, NavbarMenuToggle, NavbarBrand, NavbarItem, Butto
 import Link from "next/link";
 import React from "react";
 import NextImage from "next/image";
+import { Links } from "@/app/constants/links";
 
 export const MobileNav = () => {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -33,9 +34,9 @@ export const MobileNav = () => {
 
             </NavbarContent>
             <NavbarContent justify="end">
-                <Link href="https://share.newie.app/providers/le7P7mTPjvOFiBsAUjIttOdWUvt2" target="_blank" >
-                    <Button variant="solid" radius="md" className="bg-burgundy py-4 px-6 h-14 text-white font-bold text-[20px] oswald">BOOK NOW</Button>
-                </Link>
+                <Button variant="solid" radius="md" className="bg-burgundy py-2 px-3 h-10 text-white font-bold text-base oswald"
+                    onPress={() => window.open(Links.booking, "_blank")}
+                >BOOK NOW</Button>
             </NavbarContent>
             <NavbarMenu>
                 {menuItems.map((item, index) => (
@@ -45,14 +46,15 @@ export const MobileNav = () => {
                             color={
                                 index === 2 ? "primary" : index === menuItems.length - 1 ? "danger" : "foreground"
                             }
-                            href="#"
+                            href={item.href}
+                            onClick={() => setIsMenuOpen(false)}
                         >
                             {item.label}
                         </Link>
                     </NavbarMenuItem>
                 ))}
             </NavbarMenu>
-        </Navbar>
+        </Navbar >
     );
 
 };
