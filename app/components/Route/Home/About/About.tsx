@@ -25,7 +25,7 @@ export const About = () => {
 
             <div className={cn(rowWrapper, "mt-10 md:mt-0")}>
                 <div className="justify-items-center md:justify-items-end order-2 md:order-1">
-                    <NextImage src="/images/home3.jpg" alt="Social Sckool" width={455} height={604} priority className='rounded-md' />
+                    <NextImage src="/images/home3.JPG" alt="Social Sckool" width={455} height={604} priority className='rounded-md' />
                 </div>
                 <div className={cn(contentsWrapper, "order-1 md:order-2")}>
                     <h5 className={subHeading}>

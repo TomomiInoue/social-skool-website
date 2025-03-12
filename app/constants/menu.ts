@@ -5,7 +5,7 @@ export const menuItems = [
   },
   {
     label: "Services",
-    href: "/services",
+    href: "/services-page",
     subMenu: [
       {
         label: "Social Media Management",
