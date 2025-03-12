@@ -11,7 +11,7 @@ export const ServiceLanding = () => {
         <>
             <div className="relative w-full h-[550px]">
                 <NextImage
-                    src="/images/service-top.jpg"
+                    src="/images/service-top.JPG"
                     alt="Banner"
                     layout="fill"
                     objectFit="cover"

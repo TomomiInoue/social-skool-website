@@ -2,6 +2,7 @@ import NextImage from 'next/image';
 import { Icon } from "@iconify/react";
 import { Link } from '@heroui/react';
 import { menuItems } from '@/app/constants/menu';
+import { Links } from '@/app/constants/links';
 
 const footerItems = [
     {
@@ -35,7 +36,9 @@ export const Footer = () => {
     return (
         <footer className="bg-burgundy text-white py-10">
             <div className="container flex flex-col md:flex-row justify-between items-start md:items-center lg:gap-[150px] border-t-1 border-b-1 border-white border-opacity-50">
-                <NextImage src="/logo/logo-white.png" alt="Social Sckool white logo" width={400} height={150} />
+                <Link href="/">
+                    <NextImage src="/logo/logo-white.png" alt="Social Sckool white logo" width={400} height={150} />
+                </Link>
                 <div className='flex flex-col gap-4'>
                     {footerItems.map((item, index) => (
                         <div key={index} className='flex flex-row gap-6'>
@@ -65,9 +68,9 @@ export const Footer = () => {
                     ))
                     }
                 </div>
-                <div className='items-end'>
-                    <Link href='https://flow-design-code.vercel.app/' target='_blank'>
-                        <p className='text-white text-xs'>Website Design by FLOW DESIGN CODE</p>
+                <div className='items-end mt-4 md:mt-0'>
+                    <Link href={Links.flowDesignCode} target='_blank'>
+                        <p className='text-white text-xs'>Website Created by FLOW DESIGN CODE</p>
                     </Link>
                 </div>
             </div>
