@@ -1,6 +1,6 @@
 "use client";
 
-import { FC } from "react";
+import { FC, useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { ContactSchema, ContactType, industryList, serviceList, toolYoufoundUs } from "@/app/schema/contactSchema";
@@ -16,17 +16,59 @@ export const ContactForm: FC<ContactFormProps> = () => {
         handleSubmit,
         control,
         formState: { errors: formatError },
+        reset,
     } = useForm<ContactType>({
         mode: "onBlur",
         resolver: zodResolver(ContactSchema),
     });
+    const [status, setStatus] = useState<"loading" | "success" | "error" | null>(null);
 
-    const onSubmit: SubmitHandler<ContactType> = (data) => {
-        console.log(data);
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
+    }
+
+    const onSubmit: SubmitHandler<ContactType> = async (data) => {
+        setStatus("loading");
+        const response = await fetch("/api/contact", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        });
+        if (response.ok) {
+            setStatus("success");
+            reset({
+                firstName: "",
+                lastName: "",
+                email: "",
+                phone: "",
+                place: "",
+                industry: industryList[0],
+                businessDetails: "",
+                importance: "Sales",
+                existingSocialMedia: "",
+                website: "",
+                service: serviceList[0],
+                find: toolYoufoundUs[0],
+            });
+            scrollToTop();
+            setTimeout(() => {
+                setStatus(null);
+            }
+                , 3000);
+        }
+        setStatus("error");
+        scrollToTop();
+        //reset form after submission
+        setTimeout(() => {
+            setStatus(null);
+        }, 3000);
+
     };
-
-    console.log(formatError, "formatError");
-
 
     return (
         <Form className="w-full" onSubmit={handleSubmit(onSubmit)}>
@@ -38,7 +80,7 @@ export const ContactForm: FC<ContactFormProps> = () => {
                         render={({ field: { value, onChange, onBlur } }) => (
                             <>
                                 <InputComponent
-                                    label="First name"
+                                    label="First name*"
                                     value={value || ""}
                                     type="text"
                                     onChange={onChange}
@@ -60,7 +102,7 @@ export const ContactForm: FC<ContactFormProps> = () => {
                         render={({ field: { value, onChange, onBlur } }) => (
                             <>
                                 <InputComponent
-                                    label="Last name"
+                                    label="Last name*"
                                     value={value}
                                     type="text"
                                     onChange={onChange}
@@ -83,7 +125,7 @@ export const ContactForm: FC<ContactFormProps> = () => {
                     render={({ field: { value, onChange, onBlur } }) => (
                         <>
                             <InputComponent
-                                label="Email"
+                                label="Email*"
                                 value={value}
                                 type="email"
                                 onChange={onChange}
@@ -105,9 +147,9 @@ export const ContactForm: FC<ContactFormProps> = () => {
                     render={({ field: { value, onChange, onBlur } }) => (
                         <>
                             <InputComponent
-                                label="Phone"
+                                label="Phone*"
                                 value={value}
-                                type="number"
+                                type="tel"
                                 onChange={onChange}
                                 onBlur={onBlur}
                             />
@@ -127,7 +169,7 @@ export const ContactForm: FC<ContactFormProps> = () => {
                     render={({ field: { value, onBlur, onChange } }) => (
                         <>
                             <InputComponent
-                                label="Where are you based?"
+                                label="Where are you based?*"
                                 value={value}
                                 type="text"
                                 onChange={onChange}
@@ -149,7 +191,7 @@ export const ContactForm: FC<ContactFormProps> = () => {
                     render={({ field: { value, onChange } }) => (
                         <>
                             <SelectComponent
-                                label="What Industry is your business in?"
+                                label="What Industry is your business in?*"
                                 value={value}
                                 options={industryList}
                                 onChange={onChange}
@@ -170,7 +212,7 @@ export const ContactForm: FC<ContactFormProps> = () => {
                     render={({ field: { value, onBlur, onChange } }) => (
                         <>
                             <TextareaComponent
-                                label="Tell us more about your business"
+                                label="Tell us more about your business*"
                                 value={value || ""}
                                 onChange={onChange}
                                 onBlur={onBlur}
@@ -191,7 +233,7 @@ export const ContactForm: FC<ContactFormProps> = () => {
                     render={({ field: { value, onChange } }) => (
                         <>
                             <SelectComponent
-                                label="What is more important to you?"
+                                label="What is more important to you?*"
                                 value={value}
                                 options={["Sales", "Audience"]}
                                 onChange={onChange}
@@ -212,9 +254,9 @@ export const ContactForm: FC<ContactFormProps> = () => {
                     render={({ field: { value, onBlur, onChange } }) => (
                         <>
                             <InputComponent
-                                label="Do you have existing social media accounts?"
+                                label="Do you have existing social media accounts?(optional)"
                                 value={value || ""}
-                                type="text"
+                                type="url"
                                 onChange={onChange}
                                 onBlur={onBlur}
                             />
@@ -234,9 +276,9 @@ export const ContactForm: FC<ContactFormProps> = () => {
                     render={({ field: { value, onBlur, onChange } }) => (
                         <>
                             <InputComponent
-                                label="Website"
+                                label="Do you have a website?(optional)"
                                 value={value || ""}
-                                type="text"
+                                type="url"
                                 onChange={onChange}
                                 onBlur={onBlur}
                             />
@@ -256,7 +298,7 @@ export const ContactForm: FC<ContactFormProps> = () => {
                     render={({ field: { value, onChange } }) => (
                         <>
                             <SelectComponent
-                                label="What service are you interested in?"
+                                label="What service are you interested in? Please see our ‘services’ page for more information*"
                                 value={value}
                                 options={serviceList}
                                 onChange={onChange}
@@ -277,7 +319,7 @@ export const ContactForm: FC<ContactFormProps> = () => {
                     render={({ field: { value, onChange } }) => (
                         <>
                             <SelectComponent
-                                label="How did you find us?"
+                                label="How did you find us?*"
                                 value={value}
                                 options={toolYoufoundUs}
                                 onChange={onChange}
@@ -298,7 +340,7 @@ export const ContactForm: FC<ContactFormProps> = () => {
                     type="submit"
                     className="mt-4 w-full self-end bg-darkBrown h-[56px] text-white font-bold text-base oswald"
                 >
-                    SUBMIT
+                    {status === "loading" ? "Sending..." : "SUBMIT"}
                 </Button>
             </div>
         </Form>

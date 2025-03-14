@@ -3,7 +3,7 @@ import { Input } from "@heroui/react"
 interface InputProps {
     label: string;
     value: string;
-    type: "text" | "email" | "number";
+    type: "text" | "email" | "tel" | "url";
     onChange: (value: string) => void;
     onBlur?: () => void; // Optional callback for onBlur
 }
@@ -25,7 +25,9 @@ export const InputComponent = ({
             isClearable
             classNames={{
                 base: "w-full",
-                inputWrapper: "h-[56px]"
+                inputWrapper: "h-[56px] group-[data-focus=true]:border-darkBrown focus-within:text-darkBrown",
+                label: "text-darkBrown",
+                input: "focus:text-darkBrown placeholder:text-gray-400",
             }}
             onChange={(e) => onChange(e.target.value)}
             onBlur={onBlur} // Call the passed onBlur function
