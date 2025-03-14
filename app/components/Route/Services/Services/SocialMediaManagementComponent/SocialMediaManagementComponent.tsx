@@ -9,7 +9,7 @@ import { ServicesPageHeader } from "../ServicesPageHeader/ServicesPageHeader";
 
 export const SocialMediaManagementComponent = () => {
     return (
-        <div className={cn(SectionWrapper, "flex flex-col")}>
+        <div className={cn(SectionWrapper, "flex flex-col py-10 md:py-20")}>
             <ServicesPageHeader title="Social Media Management" description="Social media marketing is the use of social media platforms to connect with your audience to build your brand, increase sales, and drive website traffic. This involves publishing great content on your social media profiles, listening to and engaging your followers, analyzing your results, and running social media advertisements." />
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 pt-10 lg:pt-[96px]">
                 {socialMediaManagementItems.map((item, index) => (

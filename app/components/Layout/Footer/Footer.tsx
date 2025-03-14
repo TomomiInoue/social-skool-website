@@ -28,7 +28,7 @@ const socials = [
     },
     {
         icon: <Icon icon="iconoir:facebook-tag" width="24" height="24" />,
-        link: "https://www.twitter.com/socialskool",
+        link: "",
     },
 ];
 
@@ -50,7 +50,7 @@ export const Footer = () => {
                     ))}
                     <div className='flex flex-row gap-4 mt-6 mb-6 md:mb-0'>
                         {socials.map((social, index) => (
-                            <Link key={index} href={social.link}
+                            <Link key={index} href={social.link} target='_blank'
                                 className="text-white"
                             >
                                 {social.icon}

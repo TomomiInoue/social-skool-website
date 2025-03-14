@@ -1,14 +1,15 @@
 import { IndividualOffersTypes, SocialMediaManageTypes } from "@/app/types";
+import { cn } from "@heroui/react";
 
 interface ServiceDetailsCardProps {
+    setMinHeight?: boolean;
     item: SocialMediaManageTypes | IndividualOffersTypes;
 }
 
-export const ServiceDetailsCard = ({ item }: ServiceDetailsCardProps) => {
-
+export const ServiceDetailsCard = ({ item, setMinHeight }: ServiceDetailsCardProps) => {
     return (
         <div className="border-1 border-darkBrown rounded-lg p-6 flex flex-col items-center gap-4">
-            <h5 className="text-burgundy font-bold text-[22px] text-center min-h-[66px]">
+            <h5 className={cn("text-burgundy font-bold text-[22px] text-center", setMinHeight ? "min-h-[66px]" : "")}>
                 {item.header}
             </h5>
             {"description" in item ? <p className="text-base text-center">
@@ -28,7 +29,7 @@ export const ServiceDetailsCard = ({ item }: ServiceDetailsCardProps) => {
                         </>)}
             </div>
 
-            <ul className="pt-[6px] flex-col gap-2 list-disc text-base list-inside">
+            <ul className="pt-[6px] flex-col space-y-2 list-disc text-base list-inside">
                 {item.services.map((service, index) => (
                     <li key={index}>
                         {service.split(/([‘’][^‘’]+[‘’])/g).map((part, idx) =>

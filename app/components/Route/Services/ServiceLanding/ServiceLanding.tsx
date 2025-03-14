@@ -18,11 +18,11 @@ export const ServiceLanding = () => {
                     priority
                 />
             </div>
-            <div className='container grid grid-cols-1 md:gap-[160px] md:grid-cols-2 items-start justify-between pt-10 pb-[120px] gap-[60px]'>
+            <div className='container grid grid-cols-1 md:gap-[160px] md:grid-cols-2 items-start justify-between pt-10 pb-[60px] md:pb-[120px] gap-[60px]'>
                 {servicesDiscription.map((service, index) => (
                     <div key={index} className='flex flex-col gap-4'>
-                        <h4 className='oswald text-3xl font-bold'>{service.header}</h4>
-                        <p className="text-base pb-2 min-h-[128px]">
+                        <h4 className='oswald text-[28px] md:text-[32px] font-bold'>{service.header}</h4>
+                        <p className="text-base pb-2 md:min-h-[128px]">
                             {service.description}
                         </p>
 
